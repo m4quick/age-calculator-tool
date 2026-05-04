@@ -151,6 +151,186 @@
             text-align: center;
             margin: 20px 0;
         }
+        
+        /* Age Insights Styles */
+        .insight-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            border-radius: 12px;
+            margin: 20px 0;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .insight-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .insight-icon {
+            font-size: 1.3em;
+        }
+        
+        .insight-content {
+            padding: 20px;
+        }
+        
+        .generation-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .generation-traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .trait-tag {
+            background: white;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            border: 2px solid #667eea;
+        }
+        
+        .fun-fact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .fun-fact-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .fact-icon {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+        
+        .fact-number {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .fact-label {
+            color: #666;
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+        
+        .life-stage-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .life-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .highlight-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .highlight-label {
+            font-size: 0.8em;
+            color: #888;
+            text-transform: uppercase;
+        }
+        
+        .highlight-value {
+            font-weight: 600;
+            color: #333;
+            margin-top: 3px;
+        }
+        
+        .famous-born {
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .famous-born h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .famous-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .famous-person {
+            background: #f0f2f5;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+        
+        .share-btn {
+            background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(29, 161, 242, 0.4);
+        }
+        
+        @media (max-width: 600px) {
+            .fun-fact-grid {
+                grid-template-columns: 1fr;
+            }
+            .life-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
         .age-details {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -279,6 +459,84 @@
                 </div>
                 
                 <div id="next-birthday" style="margin-top: 20px; text-align: center; font-weight: 600; color: #667eea;"></div>
+                
+                <!-- Enhanced Age Insights Section -->
+                <div id="age-insights" style="margin-top: 30px; text-align: left;">
+                    <!-- Generation Info -->
+                    <div class="insight-card" id="generation-card" style="display: none;">
+                        <div class="insight-header">
+                            <span class="insight-icon">🎯</span>
+                            <span class="insight-title">Your Generation</span>
+                        </div>
+                        <div class="insight-content">
+                            <div class="generation-badge" id="generation-name"></div>
+                            <p id="generation-desc"></p>
+                            <div class="generation-traits" id="generation-traits"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Fun Facts -->
+                    <div class="insight-card" id="funfacts-card" style="display: none;">
+                        <div class="insight-header">
+                            <span class="insight-icon">🎉</span>
+                            <span class="insight-title">Fun Facts About Your Life</span>
+                        </div>
+                        <div class="insight-content">
+                            <div class="fun-fact-grid">
+                                <div class="fun-fact-item">
+                                    <div class="fact-icon">💓</div>
+                                    <div class="fact-number" id="heartbeats"></div>
+                                    <div class="fact-label">Heartbeats</div>
+                                </div>
+                                <div class="fun-fact-item">
+                                    <div class="fact-icon">🌬️</div>
+                                    <div class="fact-number" id="breaths"></div>
+                                    <div class="fact-label">Breaths Taken</div>
+                                </div>
+                                <div class="fun-fact-item">
+                                    <div class="fact-icon">😴</div>
+                                    <div class="fact-number" id="sleeps"></div>
+                                    <div class="fact-label">Nights Slept</div>
+                                </div>
+                                <div class="fun-fact-item">
+                                    <div class="fact-icon">🍕</div>
+                                    <div class="fact-number" id="meals"></div>
+                                    <div class="fact-label">Meals Eaten</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Birth Year Facts -->
+                    <div class="insight-card" id="birthyear-card" style="display: none;">
+                        <div class="insight-header">
+                            <span class="insight-icon">📅</span>
+                            <span class="insight-title">When You Were Born</span>
+                        </div>
+                        <div class="insight-content">
+                            <div id="birth-year-facts"></div>
+                            <div class="famous-born" id="famous-born"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Life Stage -->
+                    <div class="insight-card" id="lifestage-card" style="display: none;">
+                        <div class="insight-header">
+                            <span class="insight-icon">🌟</span>
+                            <span class="insight-title">Your Life Stage</span>
+                        </div>
+                        <div class="insight-content">
+                            <div class="life-stage-badge" id="life-stage-name"></div>
+                            <p id="life-stage-desc"></p>
+                            <div class="life-highlights" id="life-highlights"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Share Button -->
+                    <div class="share-section" style="margin-top: 20px; text-align: center;">
+                        <button onclick="shareResults()" class="share-btn">📤 Share My Age</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -564,8 +822,248 @@
             // Show results
             document.getElementById('results').classList.add('show');
             
+            // Generate and display age insights
+            generateAgeInsights(birthdate, years);
+            
             // Scroll to results
             document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        function generateAgeInsights(birthdate, years) {
+            const birthYear = birthdate.getFullYear();
+            const today = new Date();
+            const totalDays = Math.floor((today - birthdate) / (1000 * 60 * 60 * 24));
+            
+            // 1. Generation Info
+            showGenerationInfo(birthYear, years);
+            
+            // 2. Fun Facts (heartbeats, breaths, etc)
+            showFunFacts(totalDays);
+            
+            // 3. Birth Year Facts
+            showBirthYearFacts(birthYear);
+            
+            // 4. Life Stage
+            showLifeStage(years);
+            
+            // Show all insight cards
+            document.getElementById('generation-card').style.display = 'block';
+            document.getElementById('funfacts-card').style.display = 'block';
+            document.getElementById('birthyear-card').style.display = 'block';
+            document.getElementById('lifestage-card').style.display = 'block';
+            document.getElementById('age-insights').style.display = 'block';
+        }
+        
+        function showGenerationInfo(birthYear, age) {
+            let generation = '';
+            let desc = '';
+            let traits = [];
+            
+            if (birthYear <= 1945) {
+                generation = 'Silent Generation';
+                desc = 'Born during the Great Depression and WWII. Known for resilience, traditional values, and hard work.';
+                traits = ['Hardworking', 'Traditional', 'Resilient', 'Loyal'];
+            } else if (birthYear <= 1964) {
+                generation = 'Baby Boomer';
+                desc = 'Born during the post-war baby boom. Experienced major social changes and economic prosperity.';
+                traits = ['Optimistic', 'Work-centric', 'Competitive', 'Self-assured'];
+            } else if (birthYear <= 1980) {
+                generation = 'Generation X';
+                desc = 'The "latchkey" generation who grew up with MTV, computers, and the rise of the internet.';
+                traits = ['Independent', 'Resourceful', 'Pragmatic', 'Tech-savvy'];
+            } else if (birthYear <= 1996) {
+                generation = 'Millennial';
+                desc = 'First digital natives who grew up with smartphones and social media. Value authenticity and experiences.';
+                traits = ['Tech-native', 'Purpose-driven', 'Collaborative', 'Open-minded'];
+            } else {
+                generation = 'Generation Z';
+                desc = 'True digital natives who never knew a world without internet. Socially conscious and entrepreneurial.';
+                traits = ['Digital-native', 'Socially-aware', 'Entrepreneurial', 'Globally-connected'];
+            }
+            
+            document.getElementById('generation-name').textContent = generation;
+            document.getElementById('generation-desc').textContent = desc;
+            document.getElementById('generation-traits').innerHTML = traits
+                .map(trait => `<span class="trait-tag">${trait}</span>`)
+                .join('');
+        }
+        
+        function showFunFacts(totalDays) {
+            // Average stats
+            const heartbeats = (totalDays * 24 * 60 * 80).toLocaleString(); // ~80 bpm
+            const breaths = (totalDays * 24 * 60 * 16).toLocaleString(); // ~16 breaths/min
+            const sleeps = totalDays.toLocaleString();
+            const meals = (totalDays * 3).toLocaleString(); // ~3 meals/day
+            
+            document.getElementById('heartbeats').textContent = heartbeats;
+            document.getElementById('breaths').textContent = breaths;
+            document.getElementById('sleeps').textContent = sleeps;
+            document.getElementById('meals').textContent = meals;
+        }
+        
+        function showBirthYearFacts(birthYear) {
+            const yearFacts = {
+                1940: ['World War II ongoing', 'Tom and Jerry debut', 'Winston Churchill becomes Prime Minister'],
+                1945: ['WWII ends', 'UN founded', 'Microwave oven invented'],
+                1950: ['First credit card introduced', 'Korean War begins', 'Color TV becomes available'],
+                1955: ['Disneyland opens', 'Vaccine for polio announced', 'McDonald\'s founded'],
+                1960: ['First US presidential debate on TV', 'Laser invented', 'OPEC formed'],
+                1965: ['Medicare established', 'First commercial satellite', 'The Beatles break up'],
+                1970: {'First Earth Day', 'Floppy disk invented', 'VCRs become available'},
+                1975: ['Microsoft founded', 'Vietnam War ends', 'Jaws released'],
+                1980: ['CNN launches', 'Pac-Man released', 'Mount St. Helens erupts'],
+                1985: ['Live Aid concerts', 'Windows 1.0 released', 'Back to the Future released'],
+                1990: ['World Wide Web invented', 'Hubble Space Telescope', 'Game Boy released'],
+                1995: ['DVD invented', 'Toy Story released', 'eBay founded'],
+                2000: ['Y2K passes', 'Human genome project', 'PlayStation 2 released'],
+                2005: ['YouTube founded', 'Hurricane Katrina', 'Reddit founded'],
+                2010: ['Instagram launched', 'iPad released', 'Minecraft released'],
+                2015: ['Apple Watch released', 'Same-sex marriage legalized in US', 'Star Wars: The Force Awakens'],
+                2020: ['COVID-19 pandemic', 'SpaceX crewed launch', 'TikTok explodes globally']
+            };
+            
+            // Find closest year
+            const closestYear = Object.keys(yearFacts).reduce((prev, curr) => 
+                Math.abs(curr - birthYear) < Math.abs(prev - birthYear) ? curr : prev
+            );
+            
+            const facts = yearFacts[closestYear] || ['Your birth year was amazing!', 'The world was changing rapidly', 'New technologies were emerging'];
+            
+            let factsHtml = '<h4 style="color: #667eea; margin-bottom: 10px;">📅 Notable events from ' + birthYear + ':</h4><ul style="list-style: none; padding: 0;">';
+            facts.forEach(fact => {
+                factsHtml += `<li style="padding: 8px 0; border-bottom: 1px solid #eee;">• ${fact}</li>`;
+            });
+            factsHtml += '</ul>';
+            
+            document.getElementById('birth-year-facts').innerHTML = factsHtml;
+            
+            // Famous people born same year
+            const famousByYear = {
+                1940: ['Chuck Norris', 'Al Pacino', 'Tina Turner'],
+                1945: ['Helen Mirren', 'Bob Marley', 'Steve Martin'],
+                1950: ['Tom Petty', 'Bill Murray', 'Stevie Wonder'],
+                1955: ['Bill Gates', 'Steve Jobs', 'Rowan Atkinson'],
+                1960: ['Bono', 'Hugh Grant', 'Colin Firth'],
+                1965: ['J.K. Rowling', 'Robert Downey Jr.', 'Shania Twain'],
+                1970: ['Melania Trump', 'Matt Damon', 'Mariska Hargitay'],
+                1975: ['Angelina Jolie', 'David Beckham', 'Tiger Woods'],
+                1980: ['Kim Kardashian', 'Ryan Reynolds', 'Channing Tatum'],
+                1985: ['Bruno Mars', 'Cristiano Ronaldo', 'Keira Knightley'],
+                1990: ['Jennifer Lawrence', 'Emma Watson', 'The Weeknd'],
+                1995: ['Kendall Jenner', 'Timothée Chalamet', 'Post Malone'],
+                2000: ['Billie Eilish', 'Willow Smith', 'Finn Wolfhard'],
+                2005: ['Stranger Things kids', 'Gen Z icons', 'TikTok stars']
+            };
+            
+            const famous = famousByYear[closestYear] || ['Many other amazing people!', 'Your generation changed the world', 'Icons of your era'];
+            
+            document.getElementById('famous-born').innerHTML = `
+                <h4>🌟 Famous people born around ${birthYear}:</h4>
+                <div class="famous-list">
+                    ${famous.map(p => `<span class="famous-person">${p}</span>`).join('')}
+                </div>
+            `;
+        }
+        
+        function showLifeStage(age) {
+            let stage = '';
+            let desc = '';
+            let highlights = [];
+            
+            if (age < 13) {
+                stage = 'Childhood';
+                desc = 'A time of discovery, learning, and endless imagination.';
+                highlights = [
+                    {label: 'Focus', value: 'Learning & Playing'},
+                    {label: 'Key Skill', value: 'Curiosity'},
+                    {label: 'Superpower', value: 'Endless Energy'}
+                ];
+            } else if (age < 20) {
+                stage = 'Teen Years';
+                desc = 'Self-discovery, friendships, and finding your path.';
+                highlights = [
+                    {label: 'Focus', value: 'Identity & Growth'},
+                    {label: 'Key Skill', value: 'Adaptability'},
+                    {label: 'Superpower', value: 'Idealism'}
+                ];
+            } else if (age < 30) {
+                stage = 'Young Adult';
+                desc = 'Building your foundation, exploring careers, and independence.';
+                highlights = [
+                    {label: 'Focus', value: 'Career & Independence'},
+                    {label: 'Key Skill', value: 'Resilience'},
+                    {label: 'Superpower', value: 'Optimism'}
+                ];
+            } else if (age < 40) {
+                stage = 'Thirties';
+                desc = 'Establishing yourself, deepening relationships, and finding balance.';
+                highlights = [
+                    {label: 'Focus', value: 'Stability & Growth'},
+                    {label: 'Key Skill', value: 'Discipline'},
+                    {label: 'Superpower', value: 'Wisdom Building'}
+                ];
+            } else if (age < 50) {
+                stage = 'Forties';
+                desc = 'Peak productivity, confidence, and making your mark.';
+                highlights = [
+                    {label: 'Focus', value: 'Impact & Legacy'},
+                    {label: 'Key Skill', value: 'Leadership'},
+                    {label: 'Superpower', value: 'Experience'}
+                ];
+            } else if (age < 60) {
+                stage = 'Fifties';
+                desc = 'Reflection, wisdom, and new adventures await.';
+                highlights = [
+                    {label: 'Focus', value: 'Wisdom & Giving Back'},
+                    {label: 'Key Skill', value: 'Mentorship'},
+                    {label: 'Superpower', value: 'Perspective'}
+                ];
+            } else if (age < 70) {
+                stage = 'Sixties';
+                desc = 'Golden years of freedom, travel, and enjoying life\'s fruits.';
+                highlights = [
+                    {label: 'Focus', value: 'Freedom & Enjoyment'},
+                    {label: 'Key Skill', value: 'Appreciation'},
+                    {label: 'Superpower', value: 'Life Stories'}
+                ];
+            } else {
+                stage = 'Seventy Plus';
+                desc = 'A time of wisdom, legacy, and sharing your experience with generations.';
+                highlights = [
+                    {label: 'Focus', value: 'Legacy & Family'},
+                    {label: 'Key Skill', value: 'Storytelling'},
+                    {label: 'Superpower', value: 'Wisdom'}
+                ];
+            }
+            
+            document.getElementById('life-stage-name').textContent = stage;
+            document.getElementById('life-stage-desc').textContent = desc;
+            document.getElementById('life-highlights').innerHTML = highlights
+                .map(h => `
+                    <div class="highlight-item">
+                        <div class="highlight-label">${h.label}</div>
+                        <div class="highlight-value">${h.value}</div>
+                    </div>
+                `).join('');
+        }
+        
+        function shareResults() {
+            const years = document.getElementById('years').textContent;
+            const generation = document.getElementById('generation-name').textContent;
+            const text = `I'm ${years} years old and part of ${generation}! Find out your generation and fun age facts at Age Calculator`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Age Results',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(text + ' - ' + window.location.href).then(() => {
+                    alert('Results copied to clipboard! Share with your friends!');
+                });
+            }
         }
         
         // Allow Enter key to calculate
