@@ -561,11 +561,17 @@
             
             <ul class="features-list">
                 <li>Accurate age calculation down to the second</li>
-                <li>See your age in multiple formats (years, months, days)>
+                <li>See your age in multiple formats (years, months, days)</li>
                 <li>Find out how many days until your next birthday</li>
                 <li>Completely free and private - no data stored</li>
                 <li>Works on all devices - mobile, tablet, and desktop</li>
             </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>How Age Is Calculated</h2>
+            <p>Age calculation sounds simple — subtract your birth year from the current year — but getting it exactly right takes more than that. Our calculator works from the actual calendar date, not just the year: it counts full years elapsed, then the remaining months, then the remaining days, adjusting automatically for months of different lengths (28 to 31 days) and leap years (which add a day roughly every four years).</p>
+            <p>That's why two people born in the same year can have noticeably different "exact ages" on the same day — someone born in January has already had their birthday by mid-year, while someone born in November hasn't. Calendar-year age (just subtracting birth year from current year) can be off by a full year compared to your true, birthday-adjusted age.</p>
         </div>
 
         <div class="content-section">
@@ -603,160 +609,18 @@
                 <h3>Is this age calculator accurate?</h3>
                 <p>Yes, our age calculator is highly accurate. It accounts for leap years and different month lengths to give you the exact number of years, months, days, hours, and minutes between your birth date and today.</p>
             </div>
+
+            <div class="faq-item">
+                <h3>Why is my "exact age" different from just subtracting birth year from this year?</h3>
+                <p>Simple year subtraction ignores where your birthday falls in the calendar. If your birthday hasn't happened yet this year, that method overstates your age by one year. Our calculator checks the actual month and day, not just the year, so the result is always your true current age.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I calculate someone else's age, not just my own?</h3>
+                <p>Yes — the calculator works with any birth date, not just yours. It's commonly used to check a child's age for school enrollment cutoffs, verify eligibility for age-restricted programs, or simply settle a birthday debate.</p>
+            </div>
         </div>
     </div>
-
-    
-        <!-- International Government Health Resources -->
-        <style>
-        .resources-container { max-width: 900px; margin: 30px auto; }
-        .resources-header { text-align: center; margin-bottom: 20px; }
-        .resources-header h2 { color: #333; margin-bottom: 10px; }
-        .country-accordion { border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .country-section { border-bottom: 1px solid #e0e0e0; }
-        .country-header { background: #f8f9fa; padding: 15px 20px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
-        .country-header:hover { background: #e9ecef; }
-        .country-title { display: flex; align-items: center; gap: 10px; font-weight: 600; }
-        .country-flag { font-size: 1.5em; }
-        .country-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; background: white; }
-        .country-content.open { max-height: 800px; }
-        .resource-category { padding: 15px 20px; border-bottom: 1px solid #f0f0f0; }
-        .resource-category h4 { color: #667eea; margin-bottom: 10px; font-size: 0.95em; }
-        .resource-list { list-style: none; padding: 0; margin: 0; }
-        .resource-list li { padding: 6px 0; border-bottom: 1px solid #f5f5f5; font-size: 0.9em; }
-        .resource-list li:last-child { border-bottom: none; }
-        .resource-list a { color: #667eea; text-decoration: none; }
-        .resource-list a:hover { text-decoration: underline; }
-        .disclaimer { margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; font-size: 0.85em; color: #666; text-align: center; }
-        @media (max-width: 600px) { .country-header { padding: 12px 15px; } .resource-category { padding: 12px 15px; } }
-        </style>
-        
-        <div class="resources-container">
-            <div class="resources-header">
-                <h2>🌍 Government Health Resources by Country</h2>
-            </div>
-            
-            <div class="country-accordion">
-                <div class="country-section">
-                    <div class="country-header" onclick="toggleResources(this)">
-                        <div class="country-title"><span class="country-flag">🇺🇸</span><span>United States</span></div>
-                        <span>▼</span>
-                    </div>
-                    <div class="country-content">
-                        <div class="resource-category">
-                            <h4>🍎 Nutrition</h4>
-                            <ul class="resource-list">
-                                <li><a href="https://www.nutrition.gov" target="_blank">Nutrition.gov</a> - USDA nutrition portal</li>
-                                <li><a href="https://www.myplate.gov" target="_blank">MyPlate.gov</a> - Eating plans</li>
-                                <li><a href="https://www.dietaryguidelines.gov" target="_blank">Dietary Guidelines</a></li>
-                            </ul>
-                        </div>
-                        <div class="resource-category">
-                            <h4>🏃 Physical Activity</h4>
-                            <ul class="resource-list">
-                                <li><a href="https://odphp.health.gov/our-work/nutrition-physical-activity/physical-activity-guidelines" target="_blank">Physical Activity Guidelines</a></li>
-                                <li><a href="https://www.cdc.gov/physical-activity-basics" target="_blank">CDC Physical Activity</a></li>
-                            </ul>
-                        </div>
-                        <div class="resource-category">
-                            <h4>🏥 State Health Departments</h4>
-                            <ul class="resource-list">
-                                <li><a href="https://www.usa.gov/state-health" target="_blank">USA.gov State Health Directory</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="country-section">
-                    <div class="country-header" onclick="toggleResources(this)">
-                        <div class="country-title"><span class="country-flag">🇬🇧</span><span>United Kingdom</span></div>
-                        <span>▼</span>
-                    </div>
-                    <div class="country-content">
-                        <div class="resource-category">
-                            <h4>🍎 Nutrition</h4>
-                            <ul class="resource-list">
-                                <li><a href="https://www.nhs.uk/live-well/eat-well/the-eatwell-guide" target="_blank">The Eatwell Guide</a> - NHS recommendations</li>
-                                <li><a href="https://www.gov.uk/government/publications/the-eatwell-guide" target="_blank">GOV.UK Eatwell Guide</a></li>
-                            </ul>
-                        </div>
-                        <div class="resource-category">
-                            <h4>🏃 Physical Activity</h4>
-                            <ul class="resource-list">
-                                <li><a href="https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-for-adults-aged-19-to-64" target="_blank">Physical Activity Guidelines</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="country-section">
-                    <div class="country-header" onclick="toggleResources(this)">
-                        <div class="country-title"><span class="country-flag">🇨🇦</span><span>Canada</span></div>
-                        <span>▼</span>
-                    </div>
-                    <div class="country-content">
-                        <div class="resource-category">
-                            <h4>🍎 Nutrition</h4>
-                            <ul class="resource-list">
-                                <li><a href="https://food-guide.canada.ca" target="_blank">Canada's Food Guide</a></li>
-                                <li><a href="https://food-guide.canada.ca/en/tips-for-healthy-eating/adults" target="_blank">Healthy Eating for Adults</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="country-section">
-                    <div class="country-header" onclick="toggleResources(this)">
-                        <div class="country-title"><span class="country-flag">🇦🇺</span><span>Australia</span></div>
-                        <span>▼</span>
-                    </div>
-                    <div class="country-content">
-                        <div class="resource-category">
-                            <h4>🍎 Nutrition</h4>
-                            <ul class="resource-list">
-                                <li><a href="https://www.eatforhealth.gov.au" target="_blank">Eat For Health</a> - Australian dietary guidelines</li>
-                                <li><a href="https://www.eatforhealth.gov.au/guidelines/australian-guide-healthy-eating" target="_blank">Australian Guide to Healthy Eating</a></li>
-                            </ul>
-                        </div>
-                        <div class="resource-category">
-                            <h4>🏃 Physical Activity</h4>
-                            <ul class="resource-list">
-                                <li><a href="https://www.health.gov.au/topics/physical-activity-and-exercise/physical-activity-and-exercise-guidelines-for-all-australians" target="_blank">Physical Activity Guidelines</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="country-section">
-                    <div class="country-header" onclick="toggleResources(this)">
-                        <div class="country-title"><span class="country-flag">🌐</span><span>Global (WHO)</span></div>
-                        <span>▼</span>
-                    </div>
-                    <div class="country-content">
-                        <div class="resource-category">
-                            <h4>🌍 World Health Organization</h4>
-                            <ul class="resource-list">
-                                <li><a href="https://www.who.int/health-topics/nutrition" target="_blank">WHO Nutrition</a></li>
-                                <li><a href="https://www.who.int/health-topics/physical-activity" target="_blank">WHO Physical Activity</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="disclaimer">
-                <strong>Disclaimer:</strong> These are official government health resources. Consult your local healthcare provider for personalized advice.
-            </div>
-        </div>
-        
-        <script>
-        function toggleResources(header) {
-            const content = header.nextElementSibling;
-            const isOpen = content.classList.contains('open');
-            document.querySelectorAll('.country-content').forEach(c => { c.classList.remove('open'); c.style.maxHeight = null; });
-            if (!isOpen) { content.classList.add('open'); content.style.maxHeight = content.scrollHeight + "px"; }
-        }
-        </script>
 
     <footer>
         <div class="container">
